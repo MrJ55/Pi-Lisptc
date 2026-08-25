@@ -30,4 +30,6 @@
 
 ## Decision for this project
 
-Use **lisptc + Pi + Vestige**, not a full switch to Autolith or Prime. Port **ideas** (auto memory context, validate, recovery mindset) without porting entire platforms in phase 0–7.
+Use **lisptc + Pi + Vestige**, not a full switch to Autolith or Prime. Port **ideas** (auto memory context, validate, recovery mindset) without porting entire platforms in **core** phases 0–8.
+
+**Additive track (phases 9–12):** optional, documented adaptations of Autolith patterns — context contributors, bounded RLM Lisp ops, agendas/papercuts, soft snapshots. See `docs/07-autolith-adaptation.md` and ADRs 0007–0009. These must not rewrite core deployment.
