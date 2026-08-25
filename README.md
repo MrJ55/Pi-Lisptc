@@ -29,29 +29,31 @@ Target repo: `https://github.com/MrJ55/Pi-Lisptc`
 | **G8** Self-improvement without noise | Mind epilogue → gated `smart_ingest`; reify **replaces** turn set; pins capped |
 | **G9** Two profiles | `lisp-mind` vs `pi-default` so classic Pi remains available |
 
-## Non-goals (near term)
+## Non-goals (near term / core path)
 
-- Full Autolith RLM / recovery generations / `self.*` agent surgery  
+- Full Autolith RLM / recovery generations / `self.*` agent surgery as **required** for v1  
 - Prime Agent Continual Harness parity  
 - Replacing Pi entirely with a Lisp-only product  
 - Moving `opencode-go-cache` into Lisp  
+
+**Additive track (phases 9–12):** optional Autolith-*inspired* adaptations (context contributors, bounded RLM Lisp ops, agendas/papercuts, soft snapshots). See `docs/07-autolith-adaptation.md`. These follow core phases 0–8 and do not change core deployment.  
 
 ## Architecture (one picture)
 
 ```text
 User message
-    │
-    ├─► Host: Vestige recall (auto) ──► mind/reify!  (*mind/retrieved* REPLACE)
-    ├─► Inject mind_active (budget-capped)
-    │
+    |
+    |─► Host: Vestige recall (auto) ──► mind/reify!  (*mind/retrieved* REPLACE)
+    |─► Inject mind_active (budget-capped)
+    |
     ▼
 Model (merged Pi coding + lisptc channel + interpreter source)
-    │  output = Lisp only (lisp-mind profile)
+    |  output = Lisp only (lisp-mind profile)
     ▼
 Validate → eval in REPL → MCP tools as Lisp functions
-    │
-    ├─► (reply …) / pretty-print  (+ host UX prefs)
-    └─► mind epilogue → smart_ingest | skip  (gated)
+    |
+    |─► (reply …) / pretty-print  (+ host UX prefs)
+    |─► mind epilogue → smart_ingest | skip  (gated)
 ```
 
 - **lisptc image** = working cortex (live `defun`, turn state, hot prefs)  
@@ -82,9 +84,10 @@ Pi-Lisptc/
 | 5 | User channel | `reply`/`halt` + pretty-print |
 | 6 | Persistence | Prelude load/save; pins; session continuity |
 | 7 | Vestige reify loop | Auto-recall → reify → act → ingest |
-| 8 | Optional harden | Sandbox, L0/L1 prompt, workers, RLM later |
+| 8 | Optional harden | Sandbox, L0/L1 prompt, workers (no RLM here) |
+| **9–12** | **Autolith adaptation (additive)** | Contributors, bounded RLM, agenda/papercuts, soft generations |
 
-Detailed task lists: **[plan/](./plan/)**.
+Detailed task lists: **[plan/](./plan/)**. Core path is phases 0–8; additive track is optional and sequential after core.
 
 ## Key ADRs
 
@@ -94,6 +97,9 @@ Detailed task lists: **[plan/](./plan/)**.
 - [ADR 0004](./adr/0004-reify-replace-not-accumulate.md) — `*mind/retrieved*` replace per turn  
 - [ADR 0005](./adr/0005-provider-modes.md) — Multi-provider constraint strategy  
 - [ADR 0006](./adr/0006-profiles-lisp-mind-vs-pi-default.md) — Two profiles  
+- [ADR 0007](./adr/0007-context-contributors.md) — Host-side context contributors (additive)  
+- [ADR 0008](./adr/0008-bounded-rlm-lisp-ops.md) — Bounded RLM as optional Lisp ops (additive)  
+- [ADR 0009](./adr/0009-soft-generations-and-structured-surfaces.md) — Soft generations, agendas, papercuts (additive)  
 
 ## Upstream references
 
