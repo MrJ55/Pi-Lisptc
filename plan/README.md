@@ -1,13 +1,13 @@
 # Implementation plan
 
-Execute phases **in order**. Each phase file contains:
+Execute **core** phases **in order** (0–8). Each phase file contains:
 
 - Goals and exit criteria  
 - Background pointers into `docs/` and `adr/`  
 - **Detailed task list** suitable for a smaller coding model  
 - Verification steps  
 
-## Phase index
+## Core phase index (deploy path)
 
 | File | Phase |
 |------|--------|
@@ -21,6 +21,17 @@ Execute phases **in order**. Each phase file contains:
 | [phase-07-vestige-reify.md](./phase-07-vestige-reify.md) | 7 Vestige reify loop |
 | [phase-08-optional-harden.md](./phase-08-optional-harden.md) | 8 Optional harden |
 
+## Additive track — Autolith feature adaptation (after 0–8)
+
+These phases **follow** the core path. They must **not** be merged into phases 0–8 and must not change core deployment steps. See `docs/07-autolith-adaptation.md` and ADRs 0007–0009.
+
+| File | Phase |
+|------|--------|
+| [phase-09-context-contributors.md](./phase-09-context-contributors.md) | 9 Context contributors |
+| [phase-10-bounded-rlm.md](./phase-10-bounded-rlm.md) | 10 Bounded RLM Lisp ops |
+| [phase-11-agenda-papercuts.md](./phase-11-agenda-papercuts.md) | 11 Agendas & papercuts |
+| [phase-12-soft-generations.md](./phase-12-soft-generations.md) | 12 Soft generations |
+
 ## Rules for implementers
 
 1. Read the phase’s **Background** links before coding.  
@@ -28,3 +39,5 @@ Execute phases **in order**. Each phase file contains:
 3. Do not skip verification.  
 4. Do not implement phase N+1 features in phase N.  
 5. Prefer small commits per task group.  
+6. **Core first:** do not start phases 9–12 until 0–7 are usable daily (phase 8 optional).  
+7. Additive track may ship partially; document subsets in `VERIFY-LOG.md`.
